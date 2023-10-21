@@ -9,12 +9,13 @@ const app = express();
 
 // use express middleware to connect to application
 // route in posts routes begin with 'posts'
-app.use('/posts', postRoutes);
 
 // limit size of picture
 app.use(bodyParser.json({limit: "30", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30", extended: true}));
 app.use(cors());
+
+app.use('/posts', postRoutes);
 
 const CONNECTION_URL = 
 // "mongodb+srv://thanhnguyenqwe65:Mq0qdc1225LhnmdM@cluster0.gplvy5p.mongodb.net/?retryWrites=true&w=majority";
