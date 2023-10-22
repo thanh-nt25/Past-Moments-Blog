@@ -19,8 +19,6 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-// const CONNECTION_URL = 
-// "mongodb+srv://thanhnguyenqwe65:Mq0qdc1225LhnmdM@cluster0.gplvy5p.mongodb.net/?retryWrites=true&w=majority";
 // post to heroku
 // heroku se tu dong tao bien PORT 
 const PORT = process.env.PORT || 5000;
