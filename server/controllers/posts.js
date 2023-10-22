@@ -1,7 +1,12 @@
 // handle for routes
 // giam thieu code tai routes di, xu ly tai day
+import express from 'express';
+import mongoose from 'mongoose';
 
 import PostMessage from '../models/postMessage.js';
+
+const router = express.Router();
+
 
 export const getPosts = async (req, res) => {
     try{
@@ -30,7 +35,7 @@ export const updatePost = async (req, res) => {
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, {new: true});
+    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
 
     // await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
