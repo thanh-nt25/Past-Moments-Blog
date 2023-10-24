@@ -1,53 +1,121 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
+import {GoogleLogin} from '@react-oauth/google';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
+import jwt_decode from 'jwt-decode';
+import axios from 'axios';
 
 import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles';
 import Input from './Input';
+import { signin, signup } from '../../actions/auth';
 
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
-    const classes = useStyles();
-    const [showPassword, setShowPassword] = useState(false);
+    const [formData, setFormData] = useState(initialState);
     const [isSignup, setIsSignup] = useState(false);
+    const dispatch = useDispatch();
+    const classes = useStyles();
+    const history = useHistory();
 
-    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+    const [showPassword, setShowPassword] = useState(false);
+    const handleShowPassword = () => setShowPassword(!showPassword);
+
 
     // const isSignup = true;
     const switchMode = () => {
+        setFormData(initialState);
         setIsSignup((prevIsSignUp) => !prevIsSignUp);
-        handleShowPassword(false);
+        setShowPassword(false);
     };
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+        if (isSignup) {
+            dispatch(signup(formData, history));
+        }else{
+            dispatch(signin(formData, history));
+        }
     };
 
-    const handleChange = () => {
+    const handleChange = (e) => setFormData({ ...formData , [e.target.name]: e.target.value });
 
-    };
 
-    // const googleSuccess = async (credentialResponse) => {
-    //     console.log(credentialResponse);
-    // };
+    // function handleCredentialResponse(response) {
+    //     console.log("Encoded JWT ID token: " + response.credential);
+    // }
+
+    // useEffect(() => {
+    //     window.onload = () => {
+    //         google.accounts.id.initialize({
+    //             client_id: "217361591682-116gfjjh8j7uqbegc472dk1ds6aiifau.apps.googleusercontent.com",
+    //             callback: handleCredentialResponse
+    //         });
+    //         google.accounts.id.renderButton(
+    //             document.getElementById("buttonDiv"),
+    //             { theme: "outline", size: "large" }  // customization attributes
+    //         );
     
-    // const googleError = (error) => {
-    //     console.log(error);
-    //     console.log('Google Sign In was unsuccessful. Try again!');
-    // };
-    // "You have created a new client application that uses libraries for user authentication 
-    // or authorization that are deprecated. New clients must use the new libraries instead. 
-    // See the [Migration Guide](https://developers.google.com/identity/gsi/web/guides/gis-migration) for more information."
-    const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
-        onError: error => {console.log(error); 
-            console.log('Google Sign In was unsuccessful. Try again!');}
-    });
+    //     }
+    // }, []);
 
+    // const login = useGoogleLogin({
+    //     onSuccess: async (tokenResponse) => {
+    //         // console.log(tokenResponse);
+
+    //         // user infor
+    //         const token = tokenResponse; // chi can dung cho viec thong bao dang nhap thanh cong
+    //         const result = await axios
+    //         .get('https://www.googleapis.com/oauth2/v3/userinfo', {
+    //           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+    //         })
+    //         .then(res =>  res.data);
+
+    //         try{
+    //             dispatch({type: 'AUTH', data: { result, token }});
+
+    //             history.push('/');
+    //         } catch(error){
+    //             console.log(error);
+    //         }
+    //     },
+    //     onError: (error) => {
+    //         console.log(error);
+    //         console.log('Sign In was unsuccess! Try again!');
+    //     }
+    // });
+    
+    const googleSuccess = async (credentialResponse) => {
+        const result = jwt_decode(credentialResponse.credential); // => here is user profile
+        console.log(result);
+        const token = credentialResponse.credential;
+            try{
+                dispatch({type: 'AUTH', data: { result, token }});
+
+                history.push('/');
+            } catch(error){
+                console.log(error);
+            }
+
+    };
+    const googleError = (error) => {
+        console.log(error);
+        console.log('Google Sign In was unsuccessful. Try again!');
+    };
+
+    // credential la day ma hoa thong tin nguoi dung, co the decode bang JWT
+    //console.log("ID: " + responsePayload.sub);
+    //  console.log('Full Name: ' + responsePayload.name);
+    //  console.log('Given Name: ' + responsePayload.given_name);
+    //  console.log('Family Name: ' + responsePayload.family_name);
+    //  console.log("Image URL: " + responsePayload.picture);
+    //  console.log("Email: " + responsePayload.email);
   return (
     
         <Container component="main" maxWidth="xs">
@@ -55,7 +123,7 @@ const Auth = () => {
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
+                <Typography component="h1" variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         {
@@ -74,21 +142,16 @@ const Auth = () => {
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                         { isSignup ? 'Sign Up' : 'Sign In' }
                     </Button>
-                    {/*Google auth*/}
-                    {/* <GoogleLogin 
-                        render={(renderProps) => (
-                            <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
-                                Google Sign In
-                            </Button>
-                        )}
+                    {/*basic sign in*/}
+                    <GoogleLogin 
                         onSuccess={googleSuccess}
-                        onFailure={googleError}
+                        onError={googleError}
                         cookiePolicy="single_host_origin"
-                    /> */}
-                    <Button className={classes.googleButton} color="primary" fullWidth onClick={() => login()}  startIcon={<Icon />} variant="contained">
+                    />
+                    {/* <Button className={classes.googleButton} color="primary" fullWidth onClick={() => login()}  startIcon={<Icon />} variant="contained">
                         Google Sign In
-                    </Button>
-                    
+                    </Button>  */}
+                    <div id="buttonDiv"></div>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
                             <Button onClick={switchMode}>

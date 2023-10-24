@@ -2,7 +2,7 @@ import React from 'react';
 import  ReactDOM  from 'react-dom';
 // keep track of store => access state from anywhere
 import { Provider } from 'react-redux';
-import { legacy_createStore as createStore} from 'redux'
+import { legacy_createStore as createStore} from 'redux';
 import {  applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
