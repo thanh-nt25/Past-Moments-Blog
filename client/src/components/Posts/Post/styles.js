@@ -20,6 +20,7 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    // alignItems: 'flex-start'
   },
   overlay: {
     position: 'absolute',
@@ -53,4 +54,9 @@ export default makeStyles({
     display: 'block',
     textAlign: 'initial',
   },
+  writeBlock:{
+    display: 'flex', /* Sử dụng Flexbox để dồn các phần tử theo cột */
+    flexDirection: 'column', /* Dồn theo chiều dọc (cột) */
+    alignItems: 'flex-start',
+  }
 });
