@@ -8,7 +8,7 @@ export default makeStyles({
     backgroundBlendMode: 'darken',
   },
   border: {
-    border: 'solid',  
+    border: 'solid',
   },
   fullHeightCard: {
     height: '100%',
@@ -44,13 +44,13 @@ export default makeStyles({
   title: {
     padding: '0 16px',
   },
-  message:{
-    // padding: '0 12px',
-    fontSize: '14px'
-  },
   cardActions: {
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  cardAction: {
+    display: 'block',
+    textAlign: 'initial',
   },
 });

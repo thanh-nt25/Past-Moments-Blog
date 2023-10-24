@@ -20,7 +20,7 @@ export const getPosts = async (req, res) => {
 
         // this is async action because find() take time
         const posts = await PostMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
-        res.status(200).json({ data: posts, currentPage: Number(page), numberOfPage: Math.ceil(total / LIMIT) });
+        res.json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)});
     }catch(error){
         res.status(404).json({ message: error.message}); 
     }

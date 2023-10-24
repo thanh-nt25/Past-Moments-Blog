@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container,  Grow, Grid, Paper, AppBar, TextField, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
 
-import { getPosts, getPostsBySearch } from '../../actions/posts';
-import  Pagination  from '../Pagination';
+import {  getPostsBySearch } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
+import  Pagination  from '../Pagination';
 import useStyles from './styles';
 
 function useQuery() {
@@ -16,16 +16,17 @@ function useQuery() {
 }
 
 const Home = () => {
-    const [currentId, setCurrentId] = useState(0);
-    const dispatch = useDispatch();
+    const classes = useStyles();
     const query = useQuery();
-    const history = useHistory();  
     const page = query.get('page') || 1;
     const searchQuery = query.get('searchQuery');
 
-    const classes = useStyles();
+    const [currentId, setCurrentId] = useState(0);
+    const dispatch = useDispatch();
+    
     const [search, setSearch] = useState('');
     const [tags, setTags] = useState([]);
+    const history = useHistory();  
 
 
     const searchPost = () => {
