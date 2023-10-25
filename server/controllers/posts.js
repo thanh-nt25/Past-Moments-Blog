@@ -1,13 +1,7 @@
-// handle for routes
-// giam thieu code tai routes di, xu ly tai day
 import express from 'express';
 import mongoose from 'mongoose';
-// import dotenv from 'dotenv';
-// import { OAuth2Client } from 'google-auth-library';
 
 import PostMessage from '../models/postMessage.js';
-// import user from '../models/user.js';
-// dotenv.config();
 const router = express.Router();
 
 
@@ -18,7 +12,6 @@ export const getPosts = async (req, res) => {
         const startIndex = (Number(page) - 1) * LIMIT;
         const total = await PostMessage.countDocuments({});
 
-        // this is async action because find() take time
         const posts = await PostMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
         res.json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)});
     }catch(error){
@@ -66,19 +59,15 @@ export const createPost = async (req, res) => {
 export const updatePost = async (req, res) => {
     const { id } = req.params;
     const { title, message, creator, selectedFile, tags } = req.body;
-    // const post = req.body;
-    // check valid id
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
     const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
-    // const updatedPost = await PostMessage.findByIdAndUpdate(_id, { ...post, _id }, {new: true});
 
     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
     res.json(updatedPost);
 }
 
-//delete
 export const deletePost = async (req, res) => {
     const {id} = req.params;
 
@@ -125,37 +114,3 @@ export const commentPost = async (req, res) => {
 };
 
 export default router;
-
-//auth
-// app.post('/auth/google', 
-// export const acctoken = async (req, res) => {
-//     // auth
-//     const oAuth2Client = new OAuth2Client(
-//         process.env.CLIENT_ID,
-//         process.env.CLIENT_SECRET,
-//         'postmessage',
-//     );
-
-//     const { tokens } = await oAuth2Client.getToken(req.body.code); // exchange code for tokens
-//     console.log(tokens);
-    
-//     res.json(tokens);
-// };
-// app.post('/auth/google/refresh-token', 
-// export const reftoken = async (req, res) => {
-
-//     const oAuth2Client = new OAuth2Client(
-//         process.env.CLIENT_ID,
-//         process.env.CLIENT_SECRET,
-//         'postmessage',
-//     );
-
-//     const user = new UserRefreshClient(
-//         clientId,
-//         clientSecret,
-//         req.body.refreshToken,
-//     );
-//     const { credentials } = await user.refreshAccessToken(); // optain new tokens
-//     res.json(credentials);
-// };
-// export default getPosts;
