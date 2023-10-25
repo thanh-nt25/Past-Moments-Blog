@@ -19,23 +19,23 @@ A web-blog application that allows users to post their interesting moments and i
 
 ## Installation
 1. Clone the repo
-   ```sh
-   git clone https://github.com/thanh-nt25/Past-Moments-Blog.git
-   ```
+ ```sh
+ git clone https://github.com/thanh-nt25/Past-Moments-Blog.git
+ ```
 2. Cd to the client folder
 ```sh
-    cd .\client\ 
+cd .\client\ 
 ```
 3. Install the dependencies
 * npm
-  ```sh
-  npm install --legacy-peer-deps
-  ```
+```sh
+npm install --legacy-peer-deps
+```
 4. Run client side
 * npm
-  ```sh
-  npm start
-  ```
+```sh
+npm start
+```
 **DEMO:**
 
 **Sign Up and Log In**
