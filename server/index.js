@@ -26,7 +26,9 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
 
-// auth
+app.get('/', (req, res) => {
+    res.send('App is running!');
+});
 
 
 // post to heroku
