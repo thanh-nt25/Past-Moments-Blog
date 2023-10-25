@@ -39,22 +39,24 @@ npm start
 ### Sign Up and Log In
 - Implement Google OAuth2 using the new Google Identity Services SDK for React @react-oauth/google.
 - Authenticate login with password encrypted with jsonwebtoken and bcrypt
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/E1-small.gif)
 
 ### Interact with posts
 - See post's details
 - Pagination
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/post-detail-comment.gif)
 
-### List user-centric features
-**Search posts by related string or tags**
+<!-- ### List user-centric features -->
+### Search posts by related string or tags
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/Search-tags.gif)
-**Create/Update/Delete by post owner**
+### Create/Update/Delete by post owner
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/create.gif)
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/update.gif)
-**Like/Comment to other user's post**
+### Like/Comment to other user's post
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/like-delete.gif)
-**Recommend other post**
+### Recommend other post
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/recommend.gif)
 
 
