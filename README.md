@@ -8,6 +8,7 @@
 
   <p align="center">
     A web-blog application for keeping moments and images using React, Redux, MongoDB and ExpressJS/NodeJS
+    <br/>
     <a href="https://past-moments.000webhostapp.com/posts">View Demo</a>
   </p>
 </div>
