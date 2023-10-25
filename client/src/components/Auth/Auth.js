@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 import {GoogleLogin} from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import jwt_decode from 'jwt-decode';
-import axios from 'axios';
 
-import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles';
 import Input from './Input';
@@ -46,53 +43,8 @@ const Auth = () => {
 
     const handleChange = (e) => setFormData({ ...formData , [e.target.name]: e.target.value });
 
-
-    // function handleCredentialResponse(response) {
-    //     console.log("Encoded JWT ID token: " + response.credential);
-    // }
-
-    // useEffect(() => {
-    //     window.onload = () => {
-    //         google.accounts.id.initialize({
-    //             client_id: "217361591682-116gfjjh8j7uqbegc472dk1ds6aiifau.apps.googleusercontent.com",
-    //             callback: handleCredentialResponse
-    //         });
-    //         google.accounts.id.renderButton(
-    //             document.getElementById("buttonDiv"),
-    //             { theme: "outline", size: "large" }  // customization attributes
-    //         );
-    
-    //     }
-    // }, []);
-
-    // const login = useGoogleLogin({
-    //     onSuccess: async (tokenResponse) => {
-    //         // console.log(tokenResponse);
-
-    //         // user infor
-    //         const token = tokenResponse; // chi can dung cho viec thong bao dang nhap thanh cong
-    //         const result = await axios
-    //         .get('https://www.googleapis.com/oauth2/v3/userinfo', {
-    //           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-    //         })
-    //         .then(res =>  res.data);
-
-    //         try{
-    //             dispatch({type: 'AUTH', data: { result, token }});
-
-    //             history.push('/');
-    //         } catch(error){
-    //             console.log(error);
-    //         }
-    //     },
-    //     onError: (error) => {
-    //         console.log(error);
-    //         console.log('Sign In was unsuccess! Try again!');
-    //     }
-    // });
-    
     const googleSuccess = async (credentialResponse) => {
-        const result = jwt_decode(credentialResponse.credential); // => here is user profile
+        const result = jwt_decode(credentialResponse.credential); 
         console.log(result);
         const token = credentialResponse.credential;
             try{
@@ -109,13 +61,6 @@ const Auth = () => {
         console.log('Google Sign In was unsuccessful. Try again!');
     };
 
-    // credential la day ma hoa thong tin nguoi dung, co the decode bang JWT
-    //console.log("ID: " + responsePayload.sub);
-    //  console.log('Full Name: ' + responsePayload.name);
-    //  console.log('Given Name: ' + responsePayload.given_name);
-    //  console.log('Family Name: ' + responsePayload.family_name);
-    //  console.log("Image URL: " + responsePayload.picture);
-    //  console.log("Email: " + responsePayload.email);
   return (
     
         <Container component="main" maxWidth="xs">

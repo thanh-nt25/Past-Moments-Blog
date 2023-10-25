@@ -55,8 +55,8 @@ export default makeStyles({
     textAlign: 'initial',
   },
   writeBlock:{
-    display: 'flex', /* Sử dụng Flexbox để dồn các phần tử theo cột */
-    flexDirection: 'column', /* Dồn theo chiều dọc (cột) */
+    display: 'flex', 
+    flexDirection: 'column', 
     alignItems: 'flex-start',
-  }
+  },
 });

@@ -37,7 +37,7 @@ const Post = ({ post, setCurrentId }) => {
         ? (
           <><ThumbUpAltIcon fontSize="small" />&nbsp;{likes.length > 2 ? `You and ${likes.length - 1} others` : `${likes.length} like${likes.length > 1 ? 's' : ''}` }</>
         ) : (
-          <><ThumbUpAltOutlined fontSize="small" />&nbsp;{likes.length} {likes.length === 1 ? 'Like' : 'Likes'}</>
+          <><ThumbUpAltOutlined  fontSize="small" />&nbsp;{likes.length} {likes.length === 1 ? 'Like' : 'Likes'}</>
         );
     }
 
@@ -60,7 +60,7 @@ const Post = ({ post, setCurrentId }) => {
       >
         <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
         <div className={classes.overlay}>
-          <Typography variant="h6">{post.name}</Typography>
+          <Typography variant="subtitle1">{post.name}</Typography>
           <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
         </div>
         {(user?.result?.sub === post?.creator || user?.result?._id === post?.creator) && (
@@ -86,7 +86,7 @@ const Post = ({ post, setCurrentId }) => {
         </CardContent>
       </ButtonBase>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
+        <Button style={{ fontSize: '10px' }} color="primary" disabled={!user?.result} onClick={handleLike}>
           <Likes />
         </Button>
         {(user?.result?.sub === post?.creator || user?.result?._id === post?.creator) && (
