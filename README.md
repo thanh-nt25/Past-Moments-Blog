@@ -3,13 +3,11 @@
   <!-- <a href="https://github.com/github_username/repo_name"> -->
     <img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
   <!-- </a> -->
-
 <!-- <h3 align="center">Past Moments Blog</h3> -->
-
   <h3 align="center">
     Past Moments Blog
-    <br/>
-    <a href="https://past-moments.000webhostapp.com/posts">View Demo</a>
+    <!-- <br/>
+    <a href="https://past-moments.000webhostapp.com/posts">View Demo</a> -->
   </h3>
 </div>
 
@@ -49,14 +47,14 @@ npm start
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/post-detail-comment.gif)
 
 <!-- ### List user-centric features -->
-### Search posts by related string or tags
+- Search posts by related string or tags
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/Search-tags.gif)
-### Create/Update/Delete by post owner
+- Create/Update/Delete by post owner
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/create.gif)
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/update.gif)
-### Like/Comment to other user's post
+- Like/Comment to other user's post
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/like-delete.gif)
-### Recommend other post
+- Recommend other post
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/recommend.gif)
 
 
