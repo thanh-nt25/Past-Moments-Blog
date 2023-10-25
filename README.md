@@ -14,7 +14,11 @@
 ## Introduction
 
 A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
-
+## Tech Stack
+    - Front-end: React, Redux, Material-UI, Axios.
+    - Back-end: Node.JS, Express.JS, MongoDB, Heroku.
+    - Security: jwt-decode, bcrypt.
+    - Tools: Postman, VSCode.
 ## Installation
 1. Clone the repo
  ```sh
