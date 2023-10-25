@@ -48,13 +48,17 @@ npm start
 
 <!-- ### List user-centric features -->
 - Search posts by related string or tags
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/Search-tags.gif)
 - Create/Update/Delete by post owner
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/create.gif)
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/update.gif)
 - Like/Comment to other user's post
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/like-delete.gif)
 - Recommend other post
+
 ![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/recommend.gif)
 
 
