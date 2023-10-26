@@ -1,16 +1,5 @@
-<br />
-<div align="center">
-  <!-- <a href="https://github.com/github_username/repo_name"> -->
-    <img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
-  <!-- </a> -->
-<!-- <h3 align="center">Past Moments Blog</h3> -->
-  <h3 align="center">
-    Past Moments Blog
-    <!-- <br/>
-    <a href="https://past-moments.000webhostapp.com/posts">View Demo</a> -->
-  </h3>
-</div>
-
+# Past Moments Blog
+<img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
 ## Introduction
 
 A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
