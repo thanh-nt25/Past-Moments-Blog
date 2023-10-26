@@ -1,5 +1,6 @@
 # Past Moments Blog
 <img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
+
 ## Introduction
 
 A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
