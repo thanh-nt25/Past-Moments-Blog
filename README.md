@@ -1,9 +1,8 @@
 # Past Moments Blog
+A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
+
 <img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/public/Home.png" alt="Logo">
 
-## Introduction
-
-A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
 ## Tech Stack
     - Front-end: React, Redux, Material-UI, Axios.
     - Back-end: Node.JS, Express.JS, MongoDB, Heroku.
