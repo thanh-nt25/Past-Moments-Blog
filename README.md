@@ -1,5 +1,5 @@
 # Past Moments Blog
-<img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
+<img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/public/Home.png" alt="Logo" width="750">
 
 ## Introduction
 
