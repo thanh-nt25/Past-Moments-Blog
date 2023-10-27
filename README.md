@@ -38,7 +38,7 @@ npm start
 - Implement Google OAuth2 using the new Google Identity Services SDK for React @react-oauth/google.
 - Authenticate login with password encrypted with jsonwebtoken and bcrypt
 
-![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/E1-small.gif)
+![](https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/demo/home.gif)
 
 ### Interact with posts
 - See post's details
