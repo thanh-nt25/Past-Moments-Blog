@@ -1,20 +1,13 @@
-<br />
-<div align="center">
-  <!-- <a href="https://github.com/github_username/repo_name"> -->
-    <img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/src/images/memories.png" alt="Logo" width="160" height="160">
-  <!-- </a> -->
-<!-- <h3 align="center">Past Moments Blog</h3> -->
-  <h3 align="center">
-    Past Moments Blog
-    <!-- <br/>
-    <a href="https://past-moments.000webhostapp.com/posts">View Demo</a> -->
-  </h3>
-</div>
-
-## Introduction
-
+# Past Moments Blog
 A web-blog application that allows users to post their interesting moments and images using React, Redux, Express.JS, Node.JS and MongoDB. 
 
+<img src="https://github.com/thanh-nt25/Past-Moments-Blog/blob/master/client/public/Home.png" alt="Logo">
+
+## Tech Stack
+    - Front-end: React, Redux, Material-UI, Axios.
+    - Back-end: Node.JS, Express.JS, MongoDB, Heroku.
+    - Security: jwt-decode, bcrypt.
+    - Tools: Postman, VSCode.
 ## Installation
 1. Clone the repo
  ```sh
