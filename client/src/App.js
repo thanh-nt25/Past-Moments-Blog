@@ -9,10 +9,10 @@ import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
 
 const App = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('profile')); // phai nghien cuu ca browser
 
     return (
-        <GoogleOAuthProvider clientId="217361591682-116gfjjh8j7uqbegc472dk1ds6aiifau.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="217361591682-116gfjjh8j7uqbegc472dk1ds6aiifau.apps.googleusercontent.com">
         <BrowserRouter>
             <Container maxidth = "xl">
                 <Navbar />
